@@ -64,113 +64,7 @@ public class Pelanggan extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Data gagal dipanggil"+e);
         }
     }
-    
-//    private void bsimpanActionPerformed(java.awt.event.ActionEvent evt){
-//        String jenis = null;
-//        if (rlaki.isSelected()){
-//            jenis = "Laki-laki";
-//        }else if (rperempuan.isSelected()){
-//            jenis = "Perempuan";
-//        }
-//        String sql = "insert into pelanggan values (?,?,?,?,?)";
-//        try{
-//            PreparedStatement stat = conn.prepareStatement(sql);
-//            stat.setString(1, txtid.getText());
-//            stat.setString(2, txtnm.getText());
-//            stat.setString(3, jenis);
-//            stat.setString(4, txttelp.getText());
-//            stat.setString(5, txtalamat.getText());
-//            
-//            stat.executeUpdate();
-//            JOptionPane.showMessageDialog(null, "Data berhasil disimpan");
-//            kosong();
-//            txtid.requestFocus();
-//        }catch (SQLException e){
-//            JOptionPane.showMessageDialog(null, "Data gagal disimpan"+e);
-//        }
-//        datatable();
-//    }
-    
-//    private void bubahActionPerformed(java.awt.event.ActionEvent evt){
-//        String jenis = null;
-//        if (rlaki.isSelected()){
-//            jenis = "Laki-laki";
-//        }else if (rperempuan.isSelected()){
-//            jenis = "Perempuan";
-//        }
-//        try{
-//            String sql = "update pelanggan set nmplgn=?,jenis=?,telepon=?,alamat=? where id='"+txtid.getText()+"'";
-//            PreparedStatement stat = conn.prepareStatement(sql);
-//            stat.setString(1, txtnm.getText());
-//            stat.setString(2, jenis);
-//            stat.setString(3, txttelp.getText());
-//            stat.setString(4, txtalamat.getText());
-//            
-//            stat.executeUpdate();
-//            JOptionPane.showMessageDialog(null, "Data berhasil diubah");
-//            kosong();
-//            txtid.requestFocus();
-//        }catch (SQLException e){
-//            JOptionPane.showMessageDialog(null, "Data gagal diubah"+e);
-//        }
-//        datatable();
-//    }
-    
-//    private void bhapusActionPerformed(java.awt.event.ActionEvent evt){
-//        int ok = JOptionPane.showConfirmDialog(null, "hapus","konfirmasi dialog",JOptionPane.YES_NO_OPTION);
-//        if (ok==0){
-//            String sql = "delete from pelanggan where id ='"+txtid.getText()+"'";
-//            try{
-//                PreparedStatement stat = conn.prepareStatement(sql);
-//                stat.executeUpdate();
-//                JOptionPane.showMessageDialog(null, "Data berhasil dihapus");
-//                kosong();
-//                txtid.requestFocus();
-//            }catch (SQLException e){
-//                JOptionPane.showMessageDialog(null, "Data gagal dihapus"+e);
-//            }
-//            datatable();
-//        }
-//    }
-    
-//    private void bkeluarActionPerformed(java.awt.event.ActionEvent evt){
-//        dispose();
-//    }
-//    
-//    private void bbatalActionPerformed(java.awt.event.ActionEvent evt){
-//        kosong();
-//        datatable();
-//    }
-    
-    private void tblplgnMouseClicked(java.awt.event.MouseEvent evt){
-        int bar = tblplgn.getSelectedRow();
-        String a = tabmode.getValueAt(bar, 0).toString();
-        String b = tabmode.getValueAt(bar, 1).toString();
-        String c = tabmode.getValueAt(bar, 2).toString();
-        String d = tabmode.getValueAt(bar, 3).toString();
-        String e = tabmode.getValueAt(bar, 4).toString();
         
-        txtid.setText(a);
-        txtnm.setText(b);
-        if ("Laki-laki".equals(c)){
-            rlaki.setSelected(true);
-        }else{
-            rperempuan.setSelected(true);
-        }
-        txttelp.setText(d);
-        txtalamat.setText(e);
-    }
-    
-    private void bcariActionPerformed(java.awt.event.ActionEvent evt){
-        datatable();
-    }
-    
-    private void txtcariKeyPressed(java.awt.event.KeyEvent evt){
-        if (evt.getKeyCode()==KeyEvent.VK_ENTER){
-            datatable();
-        }
-    }
-    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -471,6 +365,35 @@ public class Pelanggan extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtcariActionPerformed
 
+    private void tblplgnMouseClicked(java.awt.event.MouseEvent evt){
+        int bar = tblplgn.getSelectedRow();
+        String a = tabmode.getValueAt(bar, 0).toString();
+        String b = tabmode.getValueAt(bar, 1).toString();
+        String c = tabmode.getValueAt(bar, 2).toString();
+        String d = tabmode.getValueAt(bar, 3).toString();
+        String e = tabmode.getValueAt(bar, 4).toString();
+        
+        txtid.setText(a);
+        txtnm.setText(b);
+        if ("Laki-laki".equals(c)){
+            rlaki.setSelected(true);
+        }else{
+            rperempuan.setSelected(true);
+        }
+        txttelp.setText(d);
+        txtalamat.setText(e);
+    }
+    
+    private void bcariActionPerformed(java.awt.event.ActionEvent evt){
+        datatable();
+    }
+    
+    private void txtcariKeyPressed(java.awt.event.KeyEvent evt){
+        if (evt.getKeyCode()==KeyEvent.VK_ENTER){
+            datatable();
+        }
+    }
+    
     /**
      * @param args the command line arguments
      */
