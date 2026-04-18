@@ -38,7 +38,7 @@ public class Pelanggan extends javax.swing.JFrame {
         txttelp.setText("");
         txtalamat.setText("");
         txtcari.setText("");
-//        buttonGroup1.clearSelection();
+        buttonGroup1.clearSelection();
     }
     
     protected void datatable(){
@@ -76,6 +76,7 @@ public class Pelanggan extends javax.swing.JFrame {
 
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         txtid = new javax.swing.JTextField();
@@ -126,9 +127,11 @@ public class Pelanggan extends javax.swing.JFrame {
 
         jLabel4.setText("Jenis Kelamin");
 
+        buttonGroup1.add(rlaki);
         rlaki.setText("Laki-laki");
         rlaki.addActionListener(this::rlakiActionPerformed);
 
+        buttonGroup1.add(rperempuan);
         rperempuan.setText("Perempuan");
         rperempuan.addActionListener(this::rperempuanActionPerformed);
 
@@ -156,8 +159,14 @@ public class Pelanggan extends javax.swing.JFrame {
         bkeluar.addActionListener(this::bkeluarActionPerformed);
 
         txtcari.addActionListener(this::txtcariActionPerformed);
+        txtcari.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtcariKeyPressed(evt);
+            }
+        });
 
         bcari.setText("Cari");
+        bcari.addActionListener(this::bcariActionPerformed);
 
         tblplgn.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -170,6 +179,11 @@ public class Pelanggan extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tblplgn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblplgnMouseClicked(evt);
+            }
+        });
         jScrollPane3.setViewportView(tblplgn);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -267,6 +281,7 @@ public class Pelanggan extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
     private void txtidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtidActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtidActionPerformed
@@ -365,7 +380,13 @@ public class Pelanggan extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtcariActionPerformed
 
-    private void tblplgnMouseClicked(java.awt.event.MouseEvent evt){
+    private void bcariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bcariActionPerformed
+        // TODO add your handling code here:
+        datatable();
+    }//GEN-LAST:event_bcariActionPerformed
+
+    private void tblplgnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblplgnMouseClicked
+        // TODO add your handling code here:
         int bar = tblplgn.getSelectedRow();
         String a = tabmode.getValueAt(bar, 0).toString();
         String b = tabmode.getValueAt(bar, 1).toString();
@@ -382,17 +403,14 @@ public class Pelanggan extends javax.swing.JFrame {
         }
         txttelp.setText(d);
         txtalamat.setText(e);
-    }
-    
-    private void bcariActionPerformed(java.awt.event.ActionEvent evt){
+    }//GEN-LAST:event_tblplgnMouseClicked
+
+    private void txtcariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtcariKeyPressed
+        // TODO add your handling code here:
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
         datatable();
     }
-    
-    private void txtcariKeyPressed(java.awt.event.KeyEvent evt){
-        if (evt.getKeyCode()==KeyEvent.VK_ENTER){
-            datatable();
-        }
-    }
+    }//GEN-LAST:event_txtcariKeyPressed
     
     /**
      * @param args the command line arguments
@@ -426,6 +444,7 @@ public class Pelanggan extends javax.swing.JFrame {
     private javax.swing.JButton bkeluar;
     private javax.swing.JButton bsimpan;
     private javax.swing.JButton bubah;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
