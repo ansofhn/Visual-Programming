@@ -18,7 +18,7 @@ public class koneksi {
         }catch(ClassNotFoundException ex){
             System.out.println("Gagal koneksi"+ex);
         }
-        String url = "jdbc:mysql://localhost/penjualan";
+        String url = "jdbc:mysql://localhost:3307/penjualan";
         try{
             koneksi = DriverManager.getConnection(url,"root", "");
             System.out.println("Berhasil koneksi database");
